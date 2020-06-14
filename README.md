@@ -8,6 +8,6 @@ em Dispositivos Móveis.
 Flutter
 
 
- **Orientador**
+ **Orientador/Professor**
 
 Rodrigo Plotze
