@@ -60,11 +60,13 @@ flutter:
     - assets/images/juice.png
     - assets/images/pizza.png
 
-    #icons
+    # icons
     - assets/images/plano-alimentar.png
     - assets/images/apple.png
     - assets/images/book.png
-
+    # cadastro
+    - assets/images/login.jpg
+    - assets/images/key.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
