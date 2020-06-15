@@ -20,7 +20,7 @@ class _AgendarState extends State<Agendar> {
       width: MediaQuery.of(context).size.width * 0.8,
       height: MediaQuery.of(context).size.height * 1,
       child: Column(children: [
-        Text("Marcar Consulta:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 28),),
+       
         TableCalendar(calendarController: _calendar)
       ],),),);
 }

@@ -10,7 +10,7 @@ class BeHealth extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Projeto Programação em Dispositivos Móveis',
+      title: 'Nutriz',
       theme: ThemeData(
         primaryColor: Colors.teal[300],
         fontFamily: 'Montserrat',

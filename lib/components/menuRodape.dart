@@ -5,32 +5,42 @@ import 'package:app_nutricao_gamificada/screens/sobreApp.dart';
 import 'package:flutter/material.dart';
 
 class MenuRodape extends StatefulWidget {
-  
   @override
   _MenuRodapeState createState() => _MenuRodapeState();
 }
 
 class _MenuRodapeState extends State<MenuRodape> {
   int _currentIndex = 0;
-  Widget callPage(int currentIndex){
-    switch(currentIndex){
-      case 0: return AboutUs();
-      case 1: return Cardapio();
-      case 2: return Conquistas();
-      case 3: return Agendar();
-      break;
-      default: return MenuRodape();
+
+  List<String> titulo = ['Sobre', 'Cardapio', 'Conquistas', 'Agendar Consulta'];
+
+  Widget callPage(int currentIndex) {
+    switch (currentIndex) {
+      case 0:
+        return AboutUs();
+      case 1:
+        return Cardapio();
+      case 2:
+        return Conquistas();
+      case 3:
+        return Agendar();
+        break;
+      default:
+        return MenuRodape();
     }
   }
 
-  
   @override
-
-
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(''),
+          title: Text(
+            titulo[_currentIndex],
+            style: TextStyle(
+                fontSize: 24,
+                color: Colors.white,
+                fontWeight: FontWeight.bold),
+          ),
         ),
         body: callPage(_currentIndex),
         bottomNavigationBar: BottomNavigationBar(
@@ -38,8 +48,8 @@ class _MenuRodapeState extends State<MenuRodape> {
           type: BottomNavigationBarType.fixed,
           onTap: (value) {
             _currentIndex = value;
-            setState(() {   
-            });
+
+            setState(() {});
           },
           items: [
             BottomNavigationBarItem(
