@@ -1,5 +1,5 @@
 import 'package:app_nutricao_gamificada/screens/cardapio.dart';
-import 'package:app_nutricao_gamificada/screens/cashback.dart';
+import 'package:app_nutricao_gamificada/screens/calendar.dart';
 import 'package:app_nutricao_gamificada/screens/conquistas.dart';
 import 'package:app_nutricao_gamificada/screens/sobreApp.dart';
 import 'package:flutter/material.dart';
