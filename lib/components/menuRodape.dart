@@ -17,7 +17,7 @@ class _MenuRodapeState extends State<MenuRodape> {
       case 0: return AboutUs();
       case 1: return Cardapio();
       case 2: return Conquistas();
-      case 3: return Cashback();
+      case 3: return Agendar();
       break;
       default: return MenuRodape();
     }
@@ -55,8 +55,8 @@ class _MenuRodapeState extends State<MenuRodape> {
                 title: Text('Conquistas'),
                 backgroundColor: Colors.teal),
             BottomNavigationBarItem(
-                icon: Icon(Icons.loyalty),
-                title: Text('Cashback'),
+                icon: Icon(Icons.calendar_today),
+                title: Text('Agenda'),
                 backgroundColor: Colors.teal),
           ],
         ));
