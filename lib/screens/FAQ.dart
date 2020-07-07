@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:app_nutricao_gamificada/components/FAQ.dart';
 
+import 'cadastroMensagem.dart';
+
 class Ajuda extends StatefulWidget {
   @override
   _AjudaState createState() => _AjudaState();
@@ -87,7 +89,10 @@ class _AjudaState extends State<Ajuda> {
         backgroundColor: Colors.teal[400],
         elevation: 0,
         child: Icon(Icons.email),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => TelaCadastroMensagem()));
+        },
       ),
     );
   }
