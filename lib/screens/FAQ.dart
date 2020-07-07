@@ -59,16 +59,26 @@ class _AjudaState extends State<Ajuda> {
               default:
                 List<DocumentSnapshot> docs = snapshot.data.documents;
                 return ListView.builder(
+                    padding: EdgeInsets.all(4),
                     itemCount: docs.length,
                     itemBuilder: (context, index) {
-                      return ListTile(
-                        title: Text(
-                          lista[index].pergunta,
-                          style: TextStyle(fontSize: 20),
-                        ),
-                        subtitle: Text(lista[index].resposta,
-                            style: TextStyle(fontSize: 16)),
-                      );
+                      return Container(
+                          margin: EdgeInsets.all(10),
+                          child: ExpansionTile(
+                            title: Text(
+                              lista[index].pergunta,
+                              style: TextStyle(fontSize: 20),
+                            ),
+                            children: [
+                              Container(
+                                margin: EdgeInsets.all(10),
+                                child: Text(
+                                  lista[index].resposta,
+                                  style: TextStyle(fontSize: 16),
+                                ),
+                              )
+                            ],
+                          ));
                     });
             }
           }),
