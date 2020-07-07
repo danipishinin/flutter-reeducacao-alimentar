@@ -40,11 +40,12 @@ class _TelaCadastroMensagemState extends State<TelaCadastroMensagem> {
       }
     }
     return Scaffold(
-        body: Container(
+        body: SingleChildScrollView(
             padding: EdgeInsets.all(50),
             child: Column(
               children: [
                 //CAMPO NOME
+                Text("E"),
                 TextField(
                   controller: txtNome,
                   style: TextStyle(
