@@ -45,13 +45,23 @@ class _TelaCadastroMensagemState extends State<TelaCadastroMensagem> {
             child: Column(
               children: [
                 //CAMPO NOME
-                Text("E"),
+                Text(
+                  "Formulário",
+                  style: TextStyle(
+                      color: Colors.teal[300],
+                      fontWeight: FontWeight.bold,
+                      fontSize: 24),
+                ),
+                SizedBox(
+                  height: 30,
+                ),
                 TextField(
                   controller: txtNome,
                   style: TextStyle(
-                      color: Colors.brown, fontWeight: FontWeight.w300),
+                      color: Colors.teal, fontWeight: FontWeight.w300),
                   decoration: InputDecoration(
-                    icon: Icon(Icons.person_outline),
+                    border: OutlineInputBorder(),
+                    prefixIcon: Icon(Icons.person_outline),
                     labelText: "Nome",
                   ),
                 ),
@@ -63,10 +73,11 @@ class _TelaCadastroMensagemState extends State<TelaCadastroMensagem> {
                 TextField(
                   controller: txtEmail,
                   style: TextStyle(
-                      color: Colors.brown, fontWeight: FontWeight.w300),
+                      color: Colors.teal, fontWeight: FontWeight.w300),
                   decoration: InputDecoration(
-                    icon: Icon(Icons.email),
+                    prefixIcon: Icon(Icons.email),
                     labelText: "Email",
+                    border: OutlineInputBorder(),
                   ),
                 ),
                 SizedBox(
@@ -75,11 +86,14 @@ class _TelaCadastroMensagemState extends State<TelaCadastroMensagem> {
                 //CAMPO MENSAGEM
                 TextField(
                   controller: txtMensagem,
+                  maxLines: 5,
                   style: TextStyle(
-                      color: Colors.brown, fontWeight: FontWeight.w300),
+                      color: Colors.teal, fontWeight: FontWeight.w300),
                   decoration: InputDecoration(
-                    icon: Icon(Icons.message),
                     labelText: "Mensagem",
+                    hintText:
+                        "Envie para nós a suas dúvidas, reclamações e sugestões de melhora!",
+                    border: OutlineInputBorder(),
                   ),
                 ),
                 SizedBox(
