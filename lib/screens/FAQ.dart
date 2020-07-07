@@ -82,6 +82,13 @@ class _AjudaState extends State<Ajuda> {
                     });
             }
           }),
+      floatingActionButton: FloatingActionButton(
+        //foregroundColor: Colors.white,
+        backgroundColor: Colors.teal[400],
+        elevation: 0,
+        child: Icon(Icons.email),
+        onPressed: () {},
+      ),
     );
   }
 }
