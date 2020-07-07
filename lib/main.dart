@@ -1,6 +1,6 @@
-
 import 'package:app_nutricao_gamificada/screens/login.dart';
 import 'package:flutter/material.dart';
+
 void main() {
   runApp(BeHealth());
 }
@@ -29,7 +29,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Login(),
+      body: Login(),
     );
   }
 }

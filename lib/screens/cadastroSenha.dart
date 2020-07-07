@@ -24,9 +24,6 @@ class CadastroSenha extends StatelessWidget {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-
-
-        
         return alerta;
       },
     );
@@ -58,6 +55,7 @@ class CadastroSenha extends StatelessWidget {
                 height: 40,
               ),
               TextFormField(
+                obscureText: true,
                 decoration: const InputDecoration(
                   hintText: 'Insira uma senha',
                   labelText: 'Senha',
