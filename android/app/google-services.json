@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "818858333042",
+    "firebase_url": "https://app-nutricional.firebaseio.com",
+    "project_id": "app-nutricional",
+    "storage_bucket": "app-nutricional.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:818858333042:android:da3d446a266ae308d043eb",
+        "android_client_info": {
+          "package_name": "com.example.app_nutricao_gamificada"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "818858333042-vajsusba069v833u8injogkmqgae3fbo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBMLWhHLZcEegKyt9PN6vCzh4p2w3a4yI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "818858333042-vajsusba069v833u8injogkmqgae3fbo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

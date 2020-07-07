@@ -1,5 +1,5 @@
 import 'package:app_nutricao_gamificada/screens/cardapio.dart';
-import 'package:app_nutricao_gamificada/screens/calendar.dart';
+import 'package:app_nutricao_gamificada/screens/FAQ.dart';
 import 'package:app_nutricao_gamificada/screens/conquistas.dart';
 import 'package:app_nutricao_gamificada/screens/sobreApp.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +12,7 @@ class MenuRodape extends StatefulWidget {
 class _MenuRodapeState extends State<MenuRodape> {
   int _currentIndex = 0;
 
-  List<String> titulo = ['Sobre', 'Cardapio', 'Conquistas', 'Agendar Consulta'];
+  List<String> titulo = ['Sobre', 'Cardapio', 'Conquistas', 'Ajuda'];
 
   Widget callPage(int currentIndex) {
     switch (currentIndex) {
@@ -23,7 +23,7 @@ class _MenuRodapeState extends State<MenuRodape> {
       case 2:
         return Conquistas();
       case 3:
-        return Agendar();
+        return Ajuda();
         break;
       default:
         return MenuRodape();
@@ -37,9 +37,7 @@ class _MenuRodapeState extends State<MenuRodape> {
           title: Text(
             titulo[_currentIndex],
             style: TextStyle(
-                fontSize: 24,
-                color: Colors.white,
-                fontWeight: FontWeight.bold),
+                fontSize: 24, color: Colors.white, fontWeight: FontWeight.bold),
           ),
         ),
         body: callPage(_currentIndex),
@@ -65,8 +63,8 @@ class _MenuRodapeState extends State<MenuRodape> {
                 title: Text('Conquistas'),
                 backgroundColor: Colors.teal),
             BottomNavigationBarItem(
-                icon: Icon(Icons.calendar_today),
-                title: Text('Agenda'),
+                icon: Icon(Icons.help_outline),
+                title: Text('Ajuda'),
                 backgroundColor: Colors.teal),
           ],
         ));

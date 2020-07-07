@@ -30,6 +30,7 @@ class _LoginState extends State<Login> {
                         ),
                       ),
                       TextFormField(
+                        obscureText: true,
                         decoration: const InputDecoration(
                           hintText: 'digite sua senha',
                           labelText: 'Senha',
@@ -97,10 +98,12 @@ class _LoginState extends State<Login> {
                           child: Text(
                             "Não tem uma conta? Crie uma agora!",
                             style: TextStyle(color: Colors.teal),
-                          ), onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => CadastroLogin()));
-                      },),
+                          ),
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => CadastroLogin()));
+                          },
+                        ),
                       )
                     ]),
               )
