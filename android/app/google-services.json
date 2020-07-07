@@ -1,37 +1,27 @@
 {
   "project_info": {
-    "project_number": "818858333042",
-    "firebase_url": "https://app-nutricional.firebaseio.com",
-    "project_id": "app-nutricional",
-    "storage_bucket": "app-nutricional.appspot.com"
+    "project_number": "956752785959",
+    "firebase_url": "https://app-nutricao-e0a09.firebaseio.com",
+    "project_id": "app-nutricao-e0a09",
+    "storage_bucket": "app-nutricao-e0a09.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:818858333042:android:da3d446a266ae308d043eb",
+        "mobilesdk_app_id": "1:956752785959:android:aa3c854630ab16d3b05402",
         "android_client_info": {
           "package_name": "com.example.app_nutricao_gamificada"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "818858333042-vajsusba069v833u8injogkmqgae3fbo.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCBMLWhHLZcEegKyt9PN6vCzh4p2w3a4yI"
+          "current_key": "AIzaSyC5rFozLC4GP-fDV2Bs0a6kLDoSwrfxfNk"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "818858333042-vajsusba069v833u8injogkmqgae3fbo.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }
