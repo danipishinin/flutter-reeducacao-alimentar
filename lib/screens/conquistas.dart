@@ -12,7 +12,11 @@ class Conquistas extends StatelessWidget {
             ),
             Text(
               "Metas atingidas: (4) ",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+                color: Colors.teal[300],
+              ),
             ),
             SizedBox(
               height: 30,
