@@ -70,7 +70,11 @@ flutter:
     # icons
     - assets/images/plano-alimentar.png
     - assets/images/apple.png
-    - assets/images/book.png
+    - assets/images/exercises.jpg
+    - assets/images/fruits.jpg
+    - assets/images/meditation.jpg
+    - assets/images/leitor.jpg
+    - assets/images/sleep.jpg
     # cadastro
     - assets/images/login.jpg
     - assets/images/key.jpg

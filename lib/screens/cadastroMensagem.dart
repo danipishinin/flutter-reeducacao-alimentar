@@ -92,7 +92,7 @@ class _TelaCadastroMensagemState extends State<TelaCadastroMensagem> {
                   decoration: InputDecoration(
                     labelText: "Mensagem",
                     hintText:
-                        "Envie para nós a suas dúvidas, reclamações e sugestões de melhora!",
+                        "Envie para nós as suas dúvidas, reclamações e sugestões de melhora!",
                     border: OutlineInputBorder(),
                   ),
                 ),
@@ -111,10 +111,6 @@ class _TelaCadastroMensagemState extends State<TelaCadastroMensagem> {
                             style:
                                 TextStyle(color: Colors.white, fontSize: 20)),
                         onPressed: () {
-                          //
-                          // Inserir
-                          //
-
                           inserir(
                               context,
                               Mensagem(idDocumento, txtNome.text, txtEmail.text,
@@ -154,6 +150,33 @@ class _TelaCadastroMensagemState extends State<TelaCadastroMensagem> {
       "email": mensagem.email,
       "mensagem": mensagem.mensagem,
     });
-    Navigator.pop(context);
+
+    popupEnvioMensagem(context);
+  }
+
+  popupEnvioMensagem(BuildContext context) {
+    // configura o button
+    Widget okButton = FlatButton(
+      child: Text("OK"),
+      onPressed: () {
+        Navigator.of(context).pop(context);
+      },
+    );
+    // configura o  AlertDialog
+    AlertDialog alerta = AlertDialog(
+      title: Text("Sua mensagem foi enviada com sucesso!!"),
+      content: Text("Em até 5 dias úteis retornaremos a sua resposta"),
+      actions: [
+        okButton,
+      ],
+    );
+
+    // exibe o dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alerta;
+      },
+    );
   }
 }
