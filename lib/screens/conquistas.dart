@@ -22,6 +22,20 @@ class Conquistas extends StatelessWidget {
                 InkWell(
                   onTap: () {
                     print("click juice");
+                    exibirInfosMissoes(
+                        context,
+                        Text(
+                          "Por conseguir tomar 1 copo de suco natural 4x na semana",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                              color: Colors.orange),
+                          textAlign: TextAlign.center,
+                        ),
+                        Image.asset(
+                          'assets/images/fruits.jpg',
+                          height: MediaQuery.of(context).size.height * 0.30,
+                        ));
                   },
                   child: new Container(
                     width: MediaQuery.of(context).size.width * 0.45,
@@ -48,6 +62,20 @@ class Conquistas extends StatelessWidget {
                 InkWell(
                   onTap: () {
                     print("click meditation");
+                    exibirInfosMissoes(
+                        context,
+                        Text(
+                          "Completar 7 dias de meditação",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                              color: Colors.pink),
+                          textAlign: TextAlign.center,
+                        ),
+                        Image.asset(
+                          'assets/images/meditation.jpg',
+                          height: MediaQuery.of(context).size.height * 0.30,
+                        ));
                   },
                   child: new Container(
                     width: MediaQuery.of(context).size.width * 0.45,
@@ -78,6 +106,20 @@ class Conquistas extends StatelessWidget {
                 InkWell(
                   onTap: () {
                     print("click books");
+                    exibirInfosMissoes(
+                        context,
+                        Text(
+                          "Descobrir um novo hobbie!",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                              color: Colors.blue),
+                          textAlign: TextAlign.center,
+                        ),
+                        Image.asset(
+                          'assets/images/leitor.jpg',
+                          height: MediaQuery.of(context).size.height * 0.30,
+                        ));
                   },
                   child: new Container(
                     width: MediaQuery.of(context).size.width * 0.45,
@@ -104,6 +146,20 @@ class Conquistas extends StatelessWidget {
                 InkWell(
                   onTap: () {
                     print("click exercises");
+                    exibirInfosMissoes(
+                        context,
+                        Text(
+                          "1 mês afastado do sedentarismo!",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                              color: Colors.blue),
+                          textAlign: TextAlign.center,
+                        ),
+                        Image.asset(
+                          'assets/images/exercises.jpg',
+                          height: MediaQuery.of(context).size.height * 0.30,
+                        ));
                   },
                   child: new Container(
                     width: MediaQuery.of(context).size.width * 0.45,
@@ -128,5 +184,34 @@ class Conquistas extends StatelessWidget {
             ),
           ],
         ));
+  }
+
+  exibirInfosMissoes(BuildContext context, Text txt, Image image) {
+    // configura o button
+    Widget okButton = FlatButton(
+      child: Text("OK"),
+      onPressed: () {
+        Navigator.of(context).pop(context);
+      },
+    );
+
+    // configura o  AlertDialog
+    AlertDialog alerta = AlertDialog(
+      title: image,
+      content: txt,
+      actions: [
+        okButton,
+      ],
+    );
+
+    // exibe o dialog
+    showDialog(
+      context: context,
+      builder: (
+        BuildContext context,
+      ) {
+        return alerta;
+      },
+    );
   }
 }
