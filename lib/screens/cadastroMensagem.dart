@@ -29,6 +29,7 @@ class _TelaCadastroMensagemState extends State<TelaCadastroMensagem> {
     });
   }
 
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     // RECUPERAR o ID do Documento
@@ -42,103 +43,126 @@ class _TelaCadastroMensagemState extends State<TelaCadastroMensagem> {
     return Scaffold(
         body: SingleChildScrollView(
             padding: EdgeInsets.all(50),
-            child: Column(
-              children: [
-                //CAMPO NOME
-                Text(
-                  "Formulário",
-                  style: TextStyle(
-                      color: Colors.teal[300],
-                      fontWeight: FontWeight.bold,
-                      fontSize: 24),
-                ),
-                SizedBox(
-                  height: 30,
-                ),
-                TextField(
-                  controller: txtNome,
-                  style: TextStyle(
-                      color: Colors.teal, fontWeight: FontWeight.w300),
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    prefixIcon: Icon(Icons.person_outline),
-                    labelText: "Nome",
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-
-                //CAMPO EMAIL
-                TextField(
-                  controller: txtEmail,
-                  style: TextStyle(
-                      color: Colors.teal, fontWeight: FontWeight.w300),
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.email),
-                    labelText: "Email",
-                    border: OutlineInputBorder(),
-                  ),
-                ),
-                SizedBox(
-                  height: 30,
-                ),
-                //CAMPO MENSAGEM
-                TextField(
-                  controller: txtMensagem,
-                  maxLines: 5,
-                  style: TextStyle(
-                      color: Colors.teal, fontWeight: FontWeight.w300),
-                  decoration: InputDecoration(
-                    labelText: "Mensagem",
-                    hintText:
-                        "Envie para nós as suas dúvidas, reclamações e sugestões de melhora!",
-                    border: OutlineInputBorder(),
-                  ),
-                ),
-                SizedBox(
-                  height: 30,
-                ),
-                //BOTÕES
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+            child: Form(
+                key: _formKey,
+                child: Column(
                   children: [
+                    //CAMPO NOME
+                    Text(
+                      "Formulário",
+                      style: TextStyle(
+                          color: Colors.teal[300],
+                          fontWeight: FontWeight.bold,
+                          fontSize: 24),
+                    ),
                     SizedBox(
-                      width: 100,
-                      child: RaisedButton(
-                        color: Colors.teal[300],
-                        child: Text("Enviar",
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 20)),
-                        onPressed: () {
-                          inserir(
-                              context,
-                              Mensagem(idDocumento, txtNome.text, txtEmail.text,
-                                  txtMensagem.text));
-                        },
+                      height: 30,
+                    ),
+                    TextFormField(
+                      validator: (value) {
+                        if (value.isEmpty) {
+                          return 'Por favor, insira o seu nome';
+                        }
+                        return null;
+                      },
+                      controller: txtNome,
+                      style: TextStyle(
+                          color: Colors.teal, fontWeight: FontWeight.w300),
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        prefixIcon: Icon(Icons.person_outline),
+                        labelText: "Nome",
                       ),
                     ),
                     SizedBox(
-                      width: 20,
+                      height: 20,
+                    ),
+
+                    //CAMPO EMAIL
+                    TextFormField(
+                      validator: (value) {
+                        if (value.isEmpty) {
+                          return 'Por favor, insira o seu email';
+                        }
+                        return null;
+                      },
+                      controller: txtEmail,
+                      style: TextStyle(
+                          color: Colors.teal, fontWeight: FontWeight.w300),
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.email),
+                        labelText: "Email",
+                        border: OutlineInputBorder(),
+                      ),
                     ),
                     SizedBox(
-                      width: 100,
-                      child: RaisedButton(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(0.0),
-                            side: BorderSide(color: Colors.teal[300])),
-                        child: Text("Voltar",
-                            style: TextStyle(
-                                color: Colors.teal[300], fontSize: 20)),
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
+                      height: 30,
+                    ),
+                    //CAMPO MENSAGEM
+                    TextFormField(
+                      validator: (value) {
+                        if (value.isEmpty) {
+                          return 'Por favor, insira a sua mensagem';
+                        }
+                        return null;
+                      },
+                      controller: txtMensagem,
+                      maxLines: 5,
+                      style: TextStyle(
+                          color: Colors.teal, fontWeight: FontWeight.w300),
+                      decoration: InputDecoration(
+                        labelText: "Mensagem",
+                        hintText:
+                            "Envie para nós as suas dúvidas, reclamações e sugestões de melhora!",
+                        border: OutlineInputBorder(),
                       ),
+                      keyboardType: TextInputType.emailAddress,
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    //BOTÕES
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          width: 100,
+                          child: RaisedButton(
+                            color: Colors.teal[300],
+                            child: Text("Enviar",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 20)),
+                            onPressed: () {
+                              if (_formKey.currentState.validate()) {
+                                inserir(
+                                    context,
+                                    Mensagem(idDocumento, txtNome.text,
+                                        txtEmail.text, txtMensagem.text));
+                              }
+                            },
+                          ),
+                        ),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        SizedBox(
+                          width: 100,
+                          child: RaisedButton(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(0.0),
+                                side: BorderSide(color: Colors.teal[300])),
+                            child: Text("Voltar",
+                                style: TextStyle(
+                                    color: Colors.teal[300], fontSize: 20)),
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                          ),
+                        ),
+                      ],
                     ),
                   ],
-                ),
-              ],
-            )));
+                ))));
   }
 
   //
