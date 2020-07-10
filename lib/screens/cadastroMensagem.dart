@@ -90,7 +90,7 @@ class _TelaCadastroMensagemState extends State<TelaCadastroMensagem> {
                       style: TextStyle(
                           color: Colors.teal, fontWeight: FontWeight.w300),
                       decoration: InputDecoration(
-                        prefixIcon: Icon(Icons.email),
+                        prefixIcon: Icon(Icons.mail_outline),
                         labelText: "Email",
                         border: OutlineInputBorder(),
                       ),
@@ -183,7 +183,7 @@ class _TelaCadastroMensagemState extends State<TelaCadastroMensagem> {
     Widget okButton = FlatButton(
       child: Text("OK"),
       onPressed: () {
-        Navigator.of(context).pop(context);
+        Navigator.pop(context);
       },
     );
     // configura o  AlertDialog

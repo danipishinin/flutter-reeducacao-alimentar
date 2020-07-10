@@ -1,13 +1,20 @@
 import 'package:app_nutricao_gamificada/components/logo.dart';
 import 'package:app_nutricao_gamificada/components/menuRodape.dart';
-import 'package:app_nutricao_gamificada/screens/cadastroLogin.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class Login extends StatefulWidget {
   @override
   _LoginState createState() => _LoginState();
 }
+
+final FirebaseAuth mAuth = FirebaseAuth.instance;
+TextEditingController emailController = new TextEditingController();
+TextEditingController passwordController = new TextEditingController();
+String _email, _password;
+// ignore: unused_element
+final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
 class _LoginState extends State<Login> {
   @override
@@ -24,12 +31,16 @@ class _LoginState extends State<Login> {
                   child: Column(
                     children: [
                       TextFormField(
+                        keyboardType: TextInputType.emailAddress,
+                        onChanged: (input) => _email = input,
                         decoration: const InputDecoration(
                           hintText: 'digite o seu email',
                           labelText: 'Email',
                         ),
                       ),
                       TextFormField(
+                        keyboardType: TextInputType.text,
+                        onChanged: (input) => _password = input,
                         obscureText: true,
                         decoration: const InputDecoration(
                           hintText: 'digite sua senha',
@@ -45,10 +56,7 @@ class _LoginState extends State<Login> {
                 padding: EdgeInsets.all(8),
                 height: 60.0,
                 child: RaisedButton(
-                  onPressed: () {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => MenuRodape()));
-                  },
+                  onPressed: loginUser,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30.0),
                   ),
@@ -93,24 +101,50 @@ class _LoginState extends State<Login> {
                       SizedBox(
                         height: 30,
                       ),
-                      Container(
-                        child: FlatButton(
-                          child: Text(
-                            "Não tem uma conta? Crie uma agora!",
-                            style: TextStyle(color: Colors.teal),
-                          ),
-                          onPressed: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => CadastroLogin()));
-                          },
-                        ),
-                      )
                     ]),
               )
             ],
           ),
         ]),
       ),
+    );
+  }
+
+  // ignore: missing_return
+  Future<FirebaseUser> loginUser() async {
+    try {
+      await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: _email, password: _password);
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => MenuRodape()));
+    } catch (e) {
+      popupEnvioMensagem(context);
+    }
+  }
+
+  popupEnvioMensagem(BuildContext context) {
+    // configura o button
+    Widget okButton = FlatButton(
+      child: Text("OK"),
+      onPressed: () {
+        Navigator.of(context).pop(context);
+      },
+    );
+    // configura o  AlertDialog
+    AlertDialog alerta = AlertDialog(
+      title: Text(""),
+      content: Text("Usuário não cadastrado ou senha/email incorreto!"),
+      actions: [
+        okButton,
+      ],
+    );
+
+    // exibe o dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alerta;
+      },
     );
   }
 }

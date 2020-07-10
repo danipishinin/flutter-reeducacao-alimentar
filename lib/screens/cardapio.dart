@@ -14,10 +14,6 @@ class Cardapio extends StatelessWidget {
               fontSize: 24,
               color: Colors.teal[300],
             )),
-
-
-
-            
         SizedBox(
           height: 20,
         ),
